@@ -19,7 +19,6 @@ npx cap sync
 * [`generateTextToImage(...)`](#generatetexttoimage)
 * [`addListener('downloadProgress', ...)`](#addlistenerdownloadprogress)
 * [`addListener('downloadDidComplete', ...)`](#addlistenerdownloaddidcomplete)
-* [`addListener('unzipProgress', ...)`](#addlistenerunzipprogress)
 * [`addListener('unzipDidComplete', ...)`](#addlistenerunzipdidcomplete)
 * [`addListener('generateProgress', ...)`](#addlistenergenerateprogress)
 * [`addListener('generateDidComplete', ...)`](#addlistenergeneratedidcomplete)
@@ -111,22 +110,6 @@ addListener(eventName: 'downloadDidComplete', listenerFunc: DownloadDidCompleteL
 | ------------------ | ----------------------------------------------------------------------------------- |
 | **`eventName`**    | <code>'downloadDidComplete'</code>                                                  |
 | **`listenerFunc`** | <code><a href="#downloaddidcompletelistener">DownloadDidCompleteListener</a></code> |
-
-**Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
-
---------------------
-
-
-### addListener('unzipProgress', ...)
-
-```typescript
-addListener(eventName: 'unzipProgress', listenerFunc: UnzipProgressListener) => Promise<PluginListenerHandle> & PluginListenerHandle
-```
-
-| Param              | Type                                                                    |
-| ------------------ | ----------------------------------------------------------------------- |
-| **`eventName`**    | <code>'unzipProgress'</code>                                            |
-| **`listenerFunc`** | <code><a href="#unzipprogresslistener">UnzipProgressListener</a></code> |
 
 **Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
@@ -230,12 +213,7 @@ addListener(eventName: 'generateDidComplete', listenerFunc: GenerateDidCompleteL
 
 #### DownloadDidCompleteResult
 
-<code>{ state: 'completed' | 'fail'; }</code>
-
-
-#### UnzipProgressListener
-
-<code>(data: number): void</code>
+<code>{ state: 'completed' | 'fail'; error?: string; }</code>
 
 
 #### UnzipDidCompleteListener
@@ -245,7 +223,7 @@ addListener(eventName: 'generateDidComplete', listenerFunc: GenerateDidCompleteL
 
 #### UnzipDidCompleteResult
 
-<code>{ state: 'completed' | 'fail'; }</code>
+<code>{ state: 'completed'; }</code>
 
 
 #### GenerateProgressListener
@@ -260,6 +238,6 @@ addListener(eventName: 'generateDidComplete', listenerFunc: GenerateDidCompleteL
 
 #### GenerateDidCompleteResult
 
-<code>{ state: 'completed' | 'fail'; image?: string; }</code>
+<code>{ state: 'completed' | 'fail'; image?: string; error?: string; }</code>
 
 </docgen-api>

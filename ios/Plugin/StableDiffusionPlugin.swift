@@ -19,7 +19,7 @@ public class CapCoreMLPlugin: CAPPlugin, FileDownloaderDelegate {
         notifyListeners("downloadDidComplete", data: ["state": "fail", "error": error.localizedDescription])
     }
     func downloadDidUpdateProgress(progress: Double) {
-        notifyListeners("downloadProgress", data: progress)
+        notifyListeners("downloadProgress", data: ["progress": progress])
     }
     func downloadDidComplete(withURL url: URL) {
         notifyListeners("downloadDidComplete", data: ["state": "completed"])
@@ -69,9 +69,10 @@ public class CapCoreMLPlugin: CAPPlugin, FileDownloaderDelegate {
             configuration.schedulerType = .pndmScheduler
             configuration.guidanceScale = 3
             let images = try pipeline.generateImages(configuration: configuration) {progress in
-                notifyListeners("generateProgress",data: progress.step / progress.stepCount)
+                notifyListeners("generateProgress",data: ["progress": progress.step / progress.stepCount])
+                return true
             }
-            notifyListeners("generateProgress", data: 1)
+            notifyListeners("generateProgress", data: ["progress": 1])
             let interval = Date().timeIntervalSince(beginDate)
             let image = images.compactMap({ $0 }).first
             var imageStr: String? = nil

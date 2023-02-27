@@ -15,7 +15,7 @@ export interface GenerateTextToImageOptions {
   prompt: string;
 }
 
-export type DownloadProgressListener = (data: number) => void;
+export type DownloadProgressListener = (data: { progress: number }) => void;
 
 export type DownloadDidCompleteResult = {
   state: 'completed' | 'fail';
@@ -32,7 +32,7 @@ export type UnzipDidCompleteResult = {
 
 export type UnzipDidCompleteListener = (data: UnzipDidCompleteResult) => void;
 
-export type GenerateProgressListener = (data: number) => void;
+export type GenerateProgressListener = (data: { progress: number }) => void;
 
 export type GenerateDidCompleteResult = {
   state: 'completed' | 'fail';
