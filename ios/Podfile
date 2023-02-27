@@ -5,6 +5,8 @@ def capacitor_pods
   use_frameworks!
   pod 'Capacitor', :path => '../node_modules/@capacitor/ios'
   pod 'CapacitorCordova', :path => '../node_modules/@capacitor/ios'
+  pod 'ZIPFoundation', '~> 0.9'
+  pod 'Path.swift', '~> 1.4'
 end
 
 target 'Plugin' do

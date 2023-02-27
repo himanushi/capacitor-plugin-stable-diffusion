@@ -1,0 +1,13 @@
+{
+  // svelte, javascript, typescript, json
+  "editor.formatOnSave": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": [
+    "source.formatDocument",
+    "source.fixAll.eslint",
+    "source.fixAll.stylelint"
+  ],
+  "eslint.validate": ["javascript", "typescript"],
+  "stylelint.validate": ["css", "postcss", "scss"],
+  "cSpell.words": []
+}
