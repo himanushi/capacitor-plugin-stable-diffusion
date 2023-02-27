@@ -30,6 +30,7 @@
 		3A8A89B729ACA2230095B6AA /* StableDiffusionPipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A89A229ACA2230095B6AA /* StableDiffusionPipeline.swift */; };
 		3A8A89B829ACA2230095B6AA /* BPETokenizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A89A429ACA2230095B6AA /* BPETokenizer.swift */; };
 		3A8A89B929ACA2230095B6AA /* BPETokenizer+Reading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A89A529ACA2230095B6AA /* BPETokenizer+Reading.swift */; };
+		3A8A89BB29ACA35C0095B6AA /* FileDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A89BA29ACA35C0095B6AA /* FileDownloader.swift */; };
 		50ADFF92201F53D600D50D53 /* Plugin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50ADFF88201F53D600D50D53 /* Plugin.framework */; };
 		50ADFF97201F53D600D50D53 /* StableDiffusionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50ADFF96201F53D600D50D53 /* StableDiffusionTests.swift */; };
 		50ADFF99201F53D600D50D53 /* StableDiffusionPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 50ADFF8B201F53D600D50D53 /* StableDiffusionPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -70,6 +71,7 @@
 		3A8A89A229ACA2230095B6AA /* StableDiffusionPipeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StableDiffusionPipeline.swift; sourceTree = "<group>"; };
 		3A8A89A429ACA2230095B6AA /* BPETokenizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BPETokenizer.swift; sourceTree = "<group>"; };
 		3A8A89A529ACA2230095B6AA /* BPETokenizer+Reading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BPETokenizer+Reading.swift"; sourceTree = "<group>"; };
+		3A8A89BA29ACA35C0095B6AA /* FileDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDownloader.swift; sourceTree = "<group>"; };
 		3B2A61DA5A1F2DD4F959604D /* Pods_Plugin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Plugin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50ADFF88201F53D600D50D53 /* Plugin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Plugin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50ADFF8B201F53D600D50D53 /* StableDiffusionPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StableDiffusionPlugin.h; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				3A8A898F29ACA2230095B6AA /* StableDiffusion */,
 				50E1A94720377CB70090CE1A /* StableDiffusionPlugin.swift */,
 				2F98D68124C9AAE400613A4C /* StableDiffusion.swift */,
+				3A8A89BA29ACA35C0095B6AA /* FileDownloader.swift */,
 				50ADFF8B201F53D600D50D53 /* StableDiffusionPlugin.h */,
 				50ADFFA72020EE4F00D50D53 /* StableDiffusionPlugin.m */,
 				50ADFF8C201F53D600D50D53 /* Info.plist */,
@@ -396,6 +399,7 @@
 				2F98D68224C9AAE500613A4C /* StableDiffusion.swift in Sources */,
 				3A8A89AB29ACA2230095B6AA /* TorchRandomSource.swift in Sources */,
 				3A8A89A829ACA2230095B6AA /* ResourceManaging.swift in Sources */,
+				3A8A89BB29ACA35C0095B6AA /* FileDownloader.swift in Sources */,
 				3A8A89B729ACA2230095B6AA /* StableDiffusionPipeline.swift in Sources */,
 				3A8A89B329ACA2230095B6AA /* StableDiffusionPipeline+Resources.swift in Sources */,
 				3A8A89B029ACA2230095B6AA /* SampleTimer.swift in Sources */,
