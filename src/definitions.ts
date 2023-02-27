@@ -19,16 +19,15 @@ export type DownloadProgressListener = (data: number) => void;
 
 export type DownloadDidCompleteResult = {
   state: 'completed' | 'fail';
+  error?: string;
 };
 
 export type DownloadDidCompleteListener = (
   data: DownloadDidCompleteResult,
 ) => void;
 
-export type UnzipProgressListener = (data: number) => void;
-
 export type UnzipDidCompleteResult = {
-  state: 'completed' | 'fail';
+  state: 'completed';
 };
 
 export type UnzipDidCompleteListener = (data: UnzipDidCompleteResult) => void;
@@ -38,6 +37,7 @@ export type GenerateProgressListener = (data: number) => void;
 export type GenerateDidCompleteResult = {
   state: 'completed' | 'fail';
   image?: string;
+  error?: string;
 };
 
 export type GenerateDidCompleteListener = (
@@ -56,10 +56,6 @@ export interface StableDiffusionPlugin {
   addListener(
     eventName: 'downloadDidComplete',
     listenerFunc: DownloadDidCompleteListener,
-  ): Promise<PluginListenerHandle> & PluginListenerHandle;
-  addListener(
-    eventName: 'unzipProgress',
-    listenerFunc: UnzipProgressListener,
   ): Promise<PluginListenerHandle> & PluginListenerHandle;
   addListener(
     eventName: 'unzipDidComplete',

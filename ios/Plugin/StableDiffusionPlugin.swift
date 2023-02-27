@@ -15,12 +15,14 @@ public class CapCoreMLPlugin: CAPPlugin, FileDownloaderDelegate {
     var downloadProgress: Double { downloader!.progress }
 
     func downloadDidStart() {}
-    func downloadDidFail(withError error: Error) { print("downloadDidFail", error) }
+    func downloadDidFail(withError error: Error) {
+        notifyListeners("downloadDidComplete", data: ["state": "fail", "error": error.localizedDescription])
+    }
     func downloadDidUpdateProgress(progress: Double) {
-        
+        notifyListeners("downloadProgress", data: progress)
     }
     func downloadDidComplete(withURL url: URL) {
-        
+        notifyListeners("downloadDidComplete", data: ["state": "completed"])
     }
 
     @objc func echo(_ call: CAPPluginCall) {
@@ -39,12 +41,13 @@ public class CapCoreMLPlugin: CAPPlugin, FileDownloaderDelegate {
     }
 
     @objc func unzip(_ call: CAPPluginCall) {
+        call.resolve()
         let url = call.getString("url")!
         let modelsDirName = call.getString("modelsDirName")!
         downloader = FileDownloader(url: url, modelsDirName: modelsDirName)
         downloader!.delegate = self
         downloader!.unzip()
-        call.resolve()
+        notifyListeners("unzipDidComplete", data: ["state": "completed"])
     }
 
     @objc func generateTextToImage(_ call: CAPPluginCall) {
@@ -61,12 +64,14 @@ public class CapCoreMLPlugin: CAPPlugin, FileDownloaderDelegate {
             let pipeline = try StableDiffusionPipeline(resourcesAt: resourcesAt,
                                                        configuration: pipelineConfig,
                                                        reduceMemory: true)
-            print("Generating...")
             var configuration = StableDiffusionPipeline.Configuration(prompt: prompt)
             configuration.stepCount = 3
             configuration.schedulerType = .pndmScheduler
             configuration.guidanceScale = 3
-            let images = try pipeline.generateImages(configuration: configuration)
+            let images = try pipeline.generateImages(configuration: configuration) {progress in
+                notifyListeners("generateProgress",data: progress.step / progress.stepCount)
+            }
+            notifyListeners("generateProgress", data: 1)
             let interval = Date().timeIntervalSince(beginDate)
             let image = images.compactMap({ $0 }).first
             var imageStr: String? = nil
@@ -76,9 +81,21 @@ public class CapCoreMLPlugin: CAPPlugin, FileDownloaderDelegate {
                     imageStr = uiImageData.base64EncodedString()
                 }
             }
-            print(imageStr)
+            notifyListeners(
+                "generateDidComplete",
+                data: [
+                    "state": "completed",
+                    "image": imageStr
+                ]
+            )
         } catch {
-            print(error)
+            notifyListeners(
+                "generateDidComplete",
+                data: [
+                    "state": "fail",
+                    "error": error.localizedDescription
+                ]
+            )
         }
     }
 }
