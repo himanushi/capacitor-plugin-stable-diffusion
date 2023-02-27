@@ -203,7 +203,7 @@ addListener(eventName: 'generateDidComplete', listenerFunc: GenerateDidCompleteL
 
 #### DownloadProgressListener
 
-<code>(data: number): void</code>
+<code>(data: { progress: number; }): void</code>
 
 
 #### DownloadDidCompleteListener
@@ -228,7 +228,7 @@ addListener(eventName: 'generateDidComplete', listenerFunc: GenerateDidCompleteL
 
 #### GenerateProgressListener
 
-<code>(data: number): void</code>
+<code>(data: { progress: number; }): void</code>
 
 
 #### GenerateDidCompleteListener
