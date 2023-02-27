@@ -1,6 +1,6 @@
 # capacitor-plugin-stable-diffusion
 
-only iOS ans iPadOS
+only iOS and iPadOS
 
 ## Install
 
@@ -13,7 +13,7 @@ npx cap sync
 
 <docgen-index>
 
-* [`echo(...)`](#echo)
+- [`echo(...)`](#echo)
 
 </docgen-index>
 
@@ -32,6 +32,6 @@ echo(options: { value: string; }) => Promise<{ value: string; }>
 
 **Returns:** <code>Promise&lt;{ value: string; }&gt;</code>
 
---------------------
+---
 
 </docgen-api>
