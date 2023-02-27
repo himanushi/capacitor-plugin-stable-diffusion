@@ -10,6 +10,26 @@
 		03FC29A292ACC40490383A1F /* Pods_Plugin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B2A61DA5A1F2DD4F959604D /* Pods_Plugin.framework */; };
 		20C0B05DCFC8E3958A738AF2 /* Pods_PluginTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6753A823D3815DB436415E3 /* Pods_PluginTests.framework */; };
 		2F98D68224C9AAE500613A4C /* StableDiffusion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F98D68124C9AAE400613A4C /* StableDiffusion.swift */; };
+		3A8A89A629ACA2230095B6AA /* DPMSolverMultistepScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A899129ACA2230095B6AA /* DPMSolverMultistepScheduler.swift */; };
+		3A8A89A729ACA2230095B6AA /* TextEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A899229ACA2230095B6AA /* TextEncoder.swift */; };
+		3A8A89A829ACA2230095B6AA /* ResourceManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A899329ACA2230095B6AA /* ResourceManaging.swift */; };
+		3A8A89A929ACA2230095B6AA /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A899429ACA2230095B6AA /* Decoder.swift */; };
+		3A8A89AA29ACA2230095B6AA /* SafetyChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A899529ACA2230095B6AA /* SafetyChecker.swift */; };
+		3A8A89AB29ACA2230095B6AA /* TorchRandomSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A899629ACA2230095B6AA /* TorchRandomSource.swift */; };
+		3A8A89AC29ACA2230095B6AA /* CGImage+vImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A899729ACA2230095B6AA /* CGImage+vImage.swift */; };
+		3A8A89AD29ACA2230095B6AA /* Encoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A899829ACA2230095B6AA /* Encoder.swift */; };
+		3A8A89AE29ACA2230095B6AA /* AlphasCumprodCalculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A899929ACA2230095B6AA /* AlphasCumprodCalculation.swift */; };
+		3A8A89AF29ACA2230095B6AA /* Unet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A899A29ACA2230095B6AA /* Unet.swift */; };
+		3A8A89B029ACA2230095B6AA /* SampleTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A899B29ACA2230095B6AA /* SampleTimer.swift */; };
+		3A8A89B129ACA2230095B6AA /* RandomSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A899C29ACA2230095B6AA /* RandomSource.swift */; };
+		3A8A89B229ACA2230095B6AA /* NumPyRandomSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A899D29ACA2230095B6AA /* NumPyRandomSource.swift */; };
+		3A8A89B329ACA2230095B6AA /* StableDiffusionPipeline+Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A899E29ACA2230095B6AA /* StableDiffusionPipeline+Resources.swift */; };
+		3A8A89B429ACA2230095B6AA /* Scheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A899F29ACA2230095B6AA /* Scheduler.swift */; };
+		3A8A89B529ACA2230095B6AA /* StableDiffusionPipeline.Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A89A029ACA2230095B6AA /* StableDiffusionPipeline.Configuration.swift */; };
+		3A8A89B629ACA2230095B6AA /* ManagedMLModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A89A129ACA2230095B6AA /* ManagedMLModel.swift */; };
+		3A8A89B729ACA2230095B6AA /* StableDiffusionPipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A89A229ACA2230095B6AA /* StableDiffusionPipeline.swift */; };
+		3A8A89B829ACA2230095B6AA /* BPETokenizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A89A429ACA2230095B6AA /* BPETokenizer.swift */; };
+		3A8A89B929ACA2230095B6AA /* BPETokenizer+Reading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8A89A529ACA2230095B6AA /* BPETokenizer+Reading.swift */; };
 		50ADFF92201F53D600D50D53 /* Plugin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50ADFF88201F53D600D50D53 /* Plugin.framework */; };
 		50ADFF97201F53D600D50D53 /* StableDiffusionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50ADFF96201F53D600D50D53 /* StableDiffusionTests.swift */; };
 		50ADFF99201F53D600D50D53 /* StableDiffusionPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 50ADFF8B201F53D600D50D53 /* StableDiffusionPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -30,6 +50,26 @@
 
 /* Begin PBXFileReference section */
 		2F98D68124C9AAE400613A4C /* StableDiffusion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StableDiffusion.swift; sourceTree = "<group>"; };
+		3A8A899129ACA2230095B6AA /* DPMSolverMultistepScheduler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPMSolverMultistepScheduler.swift; sourceTree = "<group>"; };
+		3A8A899229ACA2230095B6AA /* TextEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextEncoder.swift; sourceTree = "<group>"; };
+		3A8A899329ACA2230095B6AA /* ResourceManaging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceManaging.swift; sourceTree = "<group>"; };
+		3A8A899429ACA2230095B6AA /* Decoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Decoder.swift; sourceTree = "<group>"; };
+		3A8A899529ACA2230095B6AA /* SafetyChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafetyChecker.swift; sourceTree = "<group>"; };
+		3A8A899629ACA2230095B6AA /* TorchRandomSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TorchRandomSource.swift; sourceTree = "<group>"; };
+		3A8A899729ACA2230095B6AA /* CGImage+vImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGImage+vImage.swift"; sourceTree = "<group>"; };
+		3A8A899829ACA2230095B6AA /* Encoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encoder.swift; sourceTree = "<group>"; };
+		3A8A899929ACA2230095B6AA /* AlphasCumprodCalculation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlphasCumprodCalculation.swift; sourceTree = "<group>"; };
+		3A8A899A29ACA2230095B6AA /* Unet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unet.swift; sourceTree = "<group>"; };
+		3A8A899B29ACA2230095B6AA /* SampleTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleTimer.swift; sourceTree = "<group>"; };
+		3A8A899C29ACA2230095B6AA /* RandomSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomSource.swift; sourceTree = "<group>"; };
+		3A8A899D29ACA2230095B6AA /* NumPyRandomSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumPyRandomSource.swift; sourceTree = "<group>"; };
+		3A8A899E29ACA2230095B6AA /* StableDiffusionPipeline+Resources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StableDiffusionPipeline+Resources.swift"; sourceTree = "<group>"; };
+		3A8A899F29ACA2230095B6AA /* Scheduler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scheduler.swift; sourceTree = "<group>"; };
+		3A8A89A029ACA2230095B6AA /* StableDiffusionPipeline.Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StableDiffusionPipeline.Configuration.swift; sourceTree = "<group>"; };
+		3A8A89A129ACA2230095B6AA /* ManagedMLModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedMLModel.swift; sourceTree = "<group>"; };
+		3A8A89A229ACA2230095B6AA /* StableDiffusionPipeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StableDiffusionPipeline.swift; sourceTree = "<group>"; };
+		3A8A89A429ACA2230095B6AA /* BPETokenizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BPETokenizer.swift; sourceTree = "<group>"; };
+		3A8A89A529ACA2230095B6AA /* BPETokenizer+Reading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BPETokenizer+Reading.swift"; sourceTree = "<group>"; };
 		3B2A61DA5A1F2DD4F959604D /* Pods_Plugin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Plugin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50ADFF88201F53D600D50D53 /* Plugin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Plugin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50ADFF8B201F53D600D50D53 /* StableDiffusionPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StableDiffusionPlugin.h; sourceTree = "<group>"; };
@@ -69,6 +109,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A8A898F29ACA2230095B6AA /* StableDiffusion */ = {
+			isa = PBXGroup;
+			children = (
+				3A8A899029ACA2230095B6AA /* pipeline */,
+				3A8A89A329ACA2230095B6AA /* tokenizer */,
+			);
+			path = StableDiffusion;
+			sourceTree = "<group>";
+		};
+		3A8A899029ACA2230095B6AA /* pipeline */ = {
+			isa = PBXGroup;
+			children = (
+				3A8A899129ACA2230095B6AA /* DPMSolverMultistepScheduler.swift */,
+				3A8A899229ACA2230095B6AA /* TextEncoder.swift */,
+				3A8A899329ACA2230095B6AA /* ResourceManaging.swift */,
+				3A8A899429ACA2230095B6AA /* Decoder.swift */,
+				3A8A899529ACA2230095B6AA /* SafetyChecker.swift */,
+				3A8A899629ACA2230095B6AA /* TorchRandomSource.swift */,
+				3A8A899729ACA2230095B6AA /* CGImage+vImage.swift */,
+				3A8A899829ACA2230095B6AA /* Encoder.swift */,
+				3A8A899929ACA2230095B6AA /* AlphasCumprodCalculation.swift */,
+				3A8A899A29ACA2230095B6AA /* Unet.swift */,
+				3A8A899B29ACA2230095B6AA /* SampleTimer.swift */,
+				3A8A899C29ACA2230095B6AA /* RandomSource.swift */,
+				3A8A899D29ACA2230095B6AA /* NumPyRandomSource.swift */,
+				3A8A899E29ACA2230095B6AA /* StableDiffusionPipeline+Resources.swift */,
+				3A8A899F29ACA2230095B6AA /* Scheduler.swift */,
+				3A8A89A029ACA2230095B6AA /* StableDiffusionPipeline.Configuration.swift */,
+				3A8A89A129ACA2230095B6AA /* ManagedMLModel.swift */,
+				3A8A89A229ACA2230095B6AA /* StableDiffusionPipeline.swift */,
+			);
+			path = pipeline;
+			sourceTree = "<group>";
+		};
+		3A8A89A329ACA2230095B6AA /* tokenizer */ = {
+			isa = PBXGroup;
+			children = (
+				3A8A89A429ACA2230095B6AA /* BPETokenizer.swift */,
+				3A8A89A529ACA2230095B6AA /* BPETokenizer+Reading.swift */,
+			);
+			path = tokenizer;
+			sourceTree = "<group>";
+		};
 		50ADFF7E201F53D600D50D53 = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +175,7 @@
 		50ADFF8A201F53D600D50D53 /* Plugin */ = {
 			isa = PBXGroup;
 			children = (
+				3A8A898F29ACA2230095B6AA /* StableDiffusion */,
 				50E1A94720377CB70090CE1A /* StableDiffusionPlugin.swift */,
 				2F98D68124C9AAE400613A4C /* StableDiffusion.swift */,
 				50ADFF8B201F53D600D50D53 /* StableDiffusionPlugin.h */,
@@ -306,9 +390,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A8A89A729ACA2230095B6AA /* TextEncoder.swift in Sources */,
+				3A8A89B129ACA2230095B6AA /* RandomSource.swift in Sources */,
 				50E1A94820377CB70090CE1A /* StableDiffusionPlugin.swift in Sources */,
 				2F98D68224C9AAE500613A4C /* StableDiffusion.swift in Sources */,
+				3A8A89AB29ACA2230095B6AA /* TorchRandomSource.swift in Sources */,
+				3A8A89A829ACA2230095B6AA /* ResourceManaging.swift in Sources */,
+				3A8A89B729ACA2230095B6AA /* StableDiffusionPipeline.swift in Sources */,
+				3A8A89B329ACA2230095B6AA /* StableDiffusionPipeline+Resources.swift in Sources */,
+				3A8A89B029ACA2230095B6AA /* SampleTimer.swift in Sources */,
+				3A8A89A929ACA2230095B6AA /* Decoder.swift in Sources */,
+				3A8A89B429ACA2230095B6AA /* Scheduler.swift in Sources */,
+				3A8A89A629ACA2230095B6AA /* DPMSolverMultistepScheduler.swift in Sources */,
+				3A8A89B529ACA2230095B6AA /* StableDiffusionPipeline.Configuration.swift in Sources */,
+				3A8A89AE29ACA2230095B6AA /* AlphasCumprodCalculation.swift in Sources */,
 				50ADFFA82020EE4F00D50D53 /* StableDiffusionPlugin.m in Sources */,
+				3A8A89B829ACA2230095B6AA /* BPETokenizer.swift in Sources */,
+				3A8A89AF29ACA2230095B6AA /* Unet.swift in Sources */,
+				3A8A89AC29ACA2230095B6AA /* CGImage+vImage.swift in Sources */,
+				3A8A89B229ACA2230095B6AA /* NumPyRandomSource.swift in Sources */,
+				3A8A89AD29ACA2230095B6AA /* Encoder.swift in Sources */,
+				3A8A89B929ACA2230095B6AA /* BPETokenizer+Reading.swift in Sources */,
+				3A8A89B629ACA2230095B6AA /* ManagedMLModel.swift in Sources */,
+				3A8A89AA29ACA2230095B6AA /* SafetyChecker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
