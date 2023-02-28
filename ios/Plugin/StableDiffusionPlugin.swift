@@ -53,6 +53,7 @@ public class CapCoreMLPlugin: CAPPlugin, FileDownloaderDelegate {
     @objc func generateTextToImage(_ call: CAPPluginCall) {
         call.resolve()
         let resourcesAt = (Path.documents / call.getString("modelPath")!).url
+        print("resourcesAt:", resourcesAt)
         let prompt = call.getString("prompt")!
         do {
             let beginDate = Date()
