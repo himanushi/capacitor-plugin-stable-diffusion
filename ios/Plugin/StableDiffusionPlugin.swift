@@ -52,8 +52,7 @@ public class CapCoreMLPlugin: CAPPlugin, FileDownloaderDelegate {
 
     @objc func generateTextToImage(_ call: CAPPluginCall) {
         call.resolve()
-        // "models/stable-diffusion-v2.1-base_split-einsum_compiled"
-        let resourcesAt = (Path.documents / call.getString("url")!).url
+        let resourcesAt = (Path.documents / call.getString("modelPath")!).url
         let prompt = call.getString("prompt")!
         do {
             let beginDate = Date()
