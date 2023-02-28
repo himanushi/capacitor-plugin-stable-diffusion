@@ -53,7 +53,7 @@ public class CapCoreMLPlugin: CAPPlugin, FileDownloaderDelegate {
     @objc func generateTextToImage(_ call: CAPPluginCall) {
         call.resolve()
         //        let resourcesAt = (Path.documents / call.getString("modelPath")!).url
-                let resourcesAt = (Path.documents / "models/stable-diffusion-v2.1-base_no-i2i_split-einsum").urlt
+                let resourcesAt = (Path.documents / "models/stable-diffusion-v2.1-base_no-i2i_split-einsum").url
         print("resourcesAt:", resourcesAt)
         let prompt = call.getString("prompt")!
         do {
@@ -62,7 +62,7 @@ public class CapCoreMLPlugin: CAPPlugin, FileDownloaderDelegate {
             pipelineConfig.allowLowPrecisionAccumulationOnGPU = true
             pipelineConfig.computeUnits = .cpuAndGPU
             pipelineConfig.preferredMetalDevice = .none
-            let pipeline = try StableDiffusionPipeline(resourcesAt: resourcesAt,
+            let pipeline = try StableDiffusionPipeline(resourcesAt: (Path.documents / "models/stable-diffusion-v2.1-base_split-einsum_compiled").url,
                                                        configuration: pipelineConfig,
                                                        reduceMemory: true)
             var configuration = StableDiffusionPipeline.Configuration(prompt: prompt)
