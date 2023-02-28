@@ -49,12 +49,26 @@ public class CapCoreMLPlugin: CAPPlugin, FileDownloaderDelegate {
         downloader!.unzip()
         notifyListeners("unzipDidComplete", data: ["state": "completed"])
     }
+    
+    func saveCGImageAsPNG(image: CGImage, to url: URL) -> Bool {
+        let uiImage = UIImage(cgImage: image)
+        guard let data = uiImage.pngData() else {
+            return false
+        }
+        do {
+            try data.write(to: url)
+            return true
+        } catch {
+            print("Failed to save CGImage as PNG: \(error.localizedDescription)")
+            return false
+        }
+    }
 
     @objc func generateTextToImage(_ call: CAPPluginCall) {
         call.resolve()
-        //        let resourcesAt = (Path.documents / call.getString("modelPath")!).url
-                let resourcesAt = (Path.documents / "models/stable-diffusion-v2.1-base_no-i2i_split-einsum").url
-        print("resourcesAt:", resourcesAt)
+        let resourcesAt = (Path.documents / call.getString("modelPath")!).url
+        let savePath = call.getString("savePath")!
+        let seed = UInt32(call.getInt("seed")!)
         let prompt = call.getString("prompt")!
         do {
             let beginDate = Date()
@@ -62,32 +76,40 @@ public class CapCoreMLPlugin: CAPPlugin, FileDownloaderDelegate {
             pipelineConfig.allowLowPrecisionAccumulationOnGPU = true
             pipelineConfig.computeUnits = .cpuAndGPU
             pipelineConfig.preferredMetalDevice = .none
-            let pipeline = try StableDiffusionPipeline(resourcesAt: (Path.documents / "models/stable-diffusion-v2.1-base_split-einsum_compiled").url,
+            let pipeline = try StableDiffusionPipeline(resourcesAt: resourcesAt,
                                                        configuration: pipelineConfig,
                                                        reduceMemory: true)
             var configuration = StableDiffusionPipeline.Configuration(prompt: prompt)
             configuration.stepCount = 3
             configuration.schedulerType = .pndmScheduler
             configuration.guidanceScale = 3
+            configuration.seed = seed
             let images = try pipeline.generateImages(configuration: configuration) {progress in
-                notifyListeners("generateProgress",data: ["progress": progress.step / progress.stepCount])
+                notifyListeners("generateProgress",data: ["progress": Double(progress.step) / Double(progress.stepCount)])
                 return true
             }
-            notifyListeners("generateProgress", data: ["progress": 1])
+            notifyListeners("generateProgress", data: ["progress": 1.0])
             let interval = Date().timeIntervalSince(beginDate)
             let image = images.compactMap({ $0 }).first
-            var imageStr: String? = nil
             if let imageData = image {
-                let uiImage = UIImage(cgImage: imageData)
-                if let uiImageData = uiImage.jpegData(compressionQuality: 1.0) {
-                    imageStr = uiImageData.base64EncodedString()
+                let result = saveCGImageAsPNG(image: imageData, to: (Path.documents / savePath).url)
+                if result {
+                    notifyListeners(
+                        "generateDidComplete",
+                        data: [
+                            "state": "completed",
+                            "filePath": (Path.documents / savePath).string
+                        ]
+                    )
+                    return
                 }
             }
+
             notifyListeners(
                 "generateDidComplete",
                 data: [
-                    "state": "completed",
-                    "image": imageStr
+                    "state": "fail",
+                    "error": "画像保存失敗"
                 ]
             )
         } catch {

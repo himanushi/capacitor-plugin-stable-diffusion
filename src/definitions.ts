@@ -12,7 +12,9 @@ export interface UnzipOptions {
 
 export interface GenerateTextToImageOptions {
   modelPath: string;
+  savePath: string;
   prompt: string;
+  seed: number;
 }
 
 export type DownloadProgressListener = (data: { progress: number }) => void;
@@ -36,7 +38,7 @@ export type GenerateProgressListener = (data: { progress: number }) => void;
 
 export type GenerateDidCompleteResult = {
   state: 'completed' | 'fail';
-  image?: string;
+  filePath?: string;
   error?: string;
 };
 
