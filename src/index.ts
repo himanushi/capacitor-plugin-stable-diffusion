@@ -1,13 +1,12 @@
-import { registerPlugin } from '@capacitor/core';
-
-import type { StableDiffusionPlugin } from './definitions';
+import type { StableDiffusionPlugin } from "./definitions";
+import { registerPlugin } from "@capacitor/core";
 
 const StableDiffusion = registerPlugin<StableDiffusionPlugin>(
-  'StableDiffusion',
+  "StableDiffusion",
   {
-    web: () => import('./web').then(m => new m.StableDiffusionWeb()),
+    web: () => import("./web").then((m) => new m.StableDiffusionWeb()),
   },
 );
 
-export * from './definitions';
+export * from "./definitions";
 export { StableDiffusion };

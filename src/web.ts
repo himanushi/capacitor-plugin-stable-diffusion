@@ -1,31 +1,29 @@
-import { WebPlugin } from '@capacitor/core';
-
 import type {
   DownloadOptions,
   GenerateTextToImageOptions,
   StableDiffusionPlugin,
-} from './definitions';
+} from "./definitions";
+import { WebPlugin } from "@capacitor/core";
 
 export class StableDiffusionWeb
   extends WebPlugin
-  implements StableDiffusionPlugin
-{
-  async echo(options: { value: string }): Promise<{ value: string }> {
-    console.log('echo', options);
+  implements StableDiffusionPlugin {
+  async echo (options: { value: string }): Promise<{ value: string }> {
+    console.log("echo", options);
     return options;
   }
 
-  async download(options: DownloadOptions): Promise<void> {
-    console.log('download', options);
+  async download (options: DownloadOptions): Promise<void> {
+    console.log("download", options);
   }
 
-  async unzip(options: DownloadOptions): Promise<void> {
-    console.log('unzip', options);
+  async unzip (options: DownloadOptions): Promise<void> {
+    console.log("unzip", options);
   }
 
-  async generateTextToImage(
+  async generateTextToImage (
     options: GenerateTextToImageOptions,
   ): Promise<void> {
-    console.log('generateTextToImage', options);
+    console.log("generateTextToImage", options);
   }
 }

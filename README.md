@@ -188,7 +188,9 @@ addListener(eventName: 'generateDidComplete', listenerFunc: GenerateDidCompleteL
 | Prop            | Type                |
 | --------------- | ------------------- |
 | **`modelPath`** | <code>string</code> |
+| **`savePath`**  | <code>string</code> |
 | **`prompt`**    | <code>string</code> |
+| **`seed`**      | <code>number</code> |
 
 
 #### PluginListenerHandle
@@ -238,6 +240,6 @@ addListener(eventName: 'generateDidComplete', listenerFunc: GenerateDidCompleteL
 
 #### GenerateDidCompleteResult
 
-<code>{ state: 'completed' | 'fail'; image?: string; error?: string; }</code>
+<code>{ state: 'completed' | 'fail'; filePath?: string; error?: string; }</code>
 
 </docgen-api>

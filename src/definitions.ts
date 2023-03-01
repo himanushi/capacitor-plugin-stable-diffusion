@@ -1,27 +1,27 @@
-import type { PluginListenerHandle } from '@capacitor/core';
+import type { PluginListenerHandle } from "@capacitor/core";
 
 export interface DownloadOptions {
-  url: string;
   modelsDirName: string;
+  url: string;
 }
 
 export interface UnzipOptions {
-  url: string;
   modelsDirName: string;
+  url: string;
 }
 
 export interface GenerateTextToImageOptions {
   modelPath: string;
-  savePath: string;
   prompt: string;
+  savePath: string;
   seed: number;
 }
 
 export type DownloadProgressListener = (data: { progress: number }) => void;
 
 export type DownloadDidCompleteResult = {
-  state: 'completed' | 'fail';
   error?: string;
+  state: "completed" | "fail";
 };
 
 export type DownloadDidCompleteListener = (
@@ -29,7 +29,7 @@ export type DownloadDidCompleteListener = (
 ) => void;
 
 export type UnzipDidCompleteResult = {
-  state: 'completed';
+  state: "completed";
 };
 
 export type UnzipDidCompleteListener = (data: UnzipDidCompleteResult) => void;
@@ -37,9 +37,9 @@ export type UnzipDidCompleteListener = (data: UnzipDidCompleteResult) => void;
 export type GenerateProgressListener = (data: { progress: number }) => void;
 
 export type GenerateDidCompleteResult = {
-  state: 'completed' | 'fail';
-  filePath?: string;
   error?: string;
+  filePath?: string;
+  state: "completed" | "fail";
 };
 
 export type GenerateDidCompleteListener = (
@@ -47,28 +47,28 @@ export type GenerateDidCompleteListener = (
 ) => void;
 
 export interface StableDiffusionPlugin {
-  echo(options: { value: string }): Promise<{ value: string }>;
-  download(options: DownloadOptions): Promise<void>;
-  unzip(options: UnzipOptions): Promise<void>;
-  generateTextToImage(options: GenerateTextToImageOptions): Promise<void>;
   addListener(
-    eventName: 'downloadProgress',
+    eventName: "downloadProgress",
     listenerFunc: DownloadProgressListener,
   ): Promise<PluginListenerHandle> & PluginListenerHandle;
   addListener(
-    eventName: 'downloadDidComplete',
+    eventName: "downloadDidComplete",
     listenerFunc: DownloadDidCompleteListener,
   ): Promise<PluginListenerHandle> & PluginListenerHandle;
   addListener(
-    eventName: 'unzipDidComplete',
+    eventName: "unzipDidComplete",
     listenerFunc: UnzipDidCompleteListener,
   ): Promise<PluginListenerHandle> & PluginListenerHandle;
   addListener(
-    eventName: 'generateProgress',
+    eventName: "generateProgress",
     listenerFunc: GenerateProgressListener,
   ): Promise<PluginListenerHandle> & PluginListenerHandle;
   addListener(
-    eventName: 'generateDidComplete',
+    eventName: "generateDidComplete",
     listenerFunc: GenerateDidCompleteListener,
   ): Promise<PluginListenerHandle> & PluginListenerHandle;
+  download(options: DownloadOptions): Promise<void>;
+  echo(options: { value: string }): Promise<{ value: string }>;
+  generateTextToImage(options: GenerateTextToImageOptions): Promise<void>;
+  unzip(options: UnzipOptions): Promise<void>;
 }
