@@ -1,6 +1,8 @@
 import type {
   DownloadOptions,
   GenerateTextToImageOptions,
+  GetImagesOptions,
+  GetImagesResult,
   StableDiffusionPlugin,
 } from "./definitions";
 import { WebPlugin } from "@capacitor/core";
@@ -19,6 +21,11 @@ export class StableDiffusionWeb
 
   async unzip (options: DownloadOptions): Promise<void> {
     console.log("unzip", options);
+  }
+
+  async getImages (options: GetImagesOptions): Promise<GetImagesResult> {
+    console.log("getImages", options);
+    return [] as any;
   }
 
   async generateTextToImage (

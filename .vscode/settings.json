@@ -9,5 +9,7 @@
   ],
   "eslint.validate": ["javascript", "typescript"],
   "stylelint.validate": ["css", "postcss", "scss"],
-  "cSpell.words": []
+  "cSpell.words": [
+    "exif"
+  ]
 }

@@ -10,6 +10,23 @@ export interface UnzipOptions {
   url: string;
 }
 
+export type ImageInfo = {
+  ctime: number;
+  exif?: Record<string, string>;
+  mtime: number;
+  name: string;
+  size: number;
+  uri: string;
+};
+
+export interface GetImagesOptions {
+  path: string;
+}
+
+export interface GetImagesResult {
+  images: ImageInfo[];
+}
+
 export interface GenerateTextToImageOptions {
   modelPath: string;
   prompt: string;
@@ -70,5 +87,6 @@ export interface StableDiffusionPlugin {
   download(options: DownloadOptions): Promise<void>;
   echo(options: { value: string }): Promise<{ value: string }>;
   generateTextToImage(options: GenerateTextToImageOptions): Promise<void>;
+  getImages(options: GetImagesOptions): Promise<GetImagesResult>;
   unzip(options: UnzipOptions): Promise<void>;
 }
